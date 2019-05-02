@@ -1,8 +1,5 @@
 <template>
   <div id="webtimer">
-    <audio id="bell" preload="auto" loop>
-      <source src="sound/Mallet.ogg" type="audio/ogg">
-    </audio>
     <div id="count" class="card">
       <div class="card-header timer-header">
         <button type="button" class="btn btn-primary btn-lg" v-on:click="start">
@@ -40,9 +37,6 @@
 
 export default {
   name: 'WebTimer',
-  props: {
-    msg: String
-  },
   data() {
     return {
       timer: undefined,
@@ -52,10 +46,15 @@ export default {
       audio: new Audio("sound/Mallet.ogg"),
     }
   },
+  computed: {
+    current_timer_seconds: function () {
+      return (this.hour * 60 * 60) + (this.minute * 60) + (this.second);
+    }
+  },
   methods: {
     start: function () {
       this.timer = setInterval(() => {
-        var current_timer_seconds = (this.hour * 60 * 60) + (this.minute * 60) + (this.second);
+        var current_timer_seconds = this.current_timer_seconds;
         if(current_timer_seconds == 0){
           this.audio.play();
           return;
@@ -104,29 +103,15 @@ export default {
   text-align: center;
   font-size: 20vw;
 }
-.timer-footer{
+.timer-footer {
   text-align: center;
 }
-.timer-control{
+.timer-control {
   text-align: center;
   font-size: 20vw;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button {  
      opacity: 1;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
