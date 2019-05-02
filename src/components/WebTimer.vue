@@ -48,11 +48,6 @@ export default {
       audio: new Audio("sound/Mallet.ogg"),
     }
   },
-  component: {
-    zeroPadding: {
-      template: 'hoge {{ value }}'
-    },
-  },
   filters: {
     zeroPadding: function (value) {
       return (Array(2).join('0') + value).slice(-2);
