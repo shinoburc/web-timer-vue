@@ -1,29 +1,8 @@
-# web-timer-vue
+# web-timer
+Web timer using Vue.js
 
-## Project setup
-```
-yarn install
-```
+![capture](web-timer.png)
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## Demo
 
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[web-timer](https://zen-ritchie-178286.netlify.com/)

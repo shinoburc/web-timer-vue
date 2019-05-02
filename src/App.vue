@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <WebTimer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WebTimer from './components/WebTimer'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    WebTimer
   }
 }
 </script>
