@@ -16,6 +16,7 @@
         <div class="input-group">
           <!-- v-bind: Model->HTML, v-on: HTML->Model -->
           <!-- Best practice is use component for encapsulation and use v-model attribute for two-way data binding. -->
+          <!-- e.g. <TimeCell v-model.number="hour"> -->
           <input type="number" class="form-control timer-control" placeholder="00" max="99" min="0" v-bind:value="hour | zeroPadding" v-on:input="hour = parseInt($event.target.value)">
           <div>:</div>
           <input type="number" class="form-control timer-control" placeholder="00" max="59" min="0" v-bind:value="minute | zeroPadding" v-on:input="minute = parseInt($event.target.value)">
