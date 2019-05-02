@@ -1,6 +1,6 @@
 <template>
-  <div id="webtimer">
-    <div id="count" class="card">
+  <div>
+    <div class="card">
       <div class="card-header timer-header">
         <button type="button" class="btn btn-primary btn-lg" v-on:click="start">
           <i class="fas fa-play">&nbsp;</i> Start
@@ -14,11 +14,13 @@
       </div>
       <div class="card-body timer-body">
         <div class="input-group">
-          <input type="number" class="form-control timer-control" placeholder="00" max="99" min="0" v-model.number="hour">
+          <!-- v-bind: Model->HTML, v-on: HTML->Model -->
+          <!-- Best practice is use component for encapsulation and use v-model attribute for two-way data binding. -->
+          <input type="number" class="form-control timer-control" placeholder="00" max="99" min="0" v-bind:value="hour | zeroPadding" v-on:input="hour = parseInt($event.target.value)">
           <div>:</div>
-          <input type="number" class="form-control timer-control" placeholder="00" max="59" min="0" v-model.number="minute">
+          <input type="number" class="form-control timer-control" placeholder="00" max="59" min="0" v-bind:value="minute | zeroPadding" v-on:input="minute = parseInt($event.target.value)">
           <div>:</div>
-          <input type="number" class="form-control timer-control" placeholder="00" max="59" min="0" v-model.number="second">
+          <input type="number" class="form-control timer-control" placeholder="00" max="59" min="0" v-bind:value="second | zeroPadding" v-on:input="second = parseInt($event.target.value)">
         </div>
       </div>
       <div class="card-footer timer-footer">
@@ -44,6 +46,16 @@ export default {
       minute: 0,
       second: 0,
       audio: new Audio("sound/Mallet.ogg"),
+    }
+  },
+  component: {
+    zeroPadding: {
+      template: 'hoge {{ value }}'
+    },
+  },
+  filters: {
+    zeroPadding: function (value) {
+      return (Array(2).join('0') + value).slice(-2);
     }
   },
   computed: {
