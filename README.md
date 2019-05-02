@@ -5,4 +5,4 @@ Web timer using Vue.js
 
 ## Demo
 
-[web-timer](https://zen-ritchie-178286.netlify.com/)
+[web-timer-vue](https://web-timer-vue.herokuapp.com/)
